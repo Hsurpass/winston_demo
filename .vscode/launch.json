@@ -11,10 +11,34 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/src/logger.js",
+            "program": "${workspaceFolder}/js/logger.js",
+            "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
-                "${workspaceFolder}/dist/**/*.js"
-            ]
+                "${workspaceFolder}/js/**/*.js"
+            ],
+            "cwd": "${workspaceFolder}",
+            "protocol": "inspector"
+        },
+        {
+            "type": "node",
+            "name": "Launch Program1",
+            "program": "${workspaceFolder}/node_modules/.bin/ts-node.cmd",
+            "args": [
+                "${workspaceFolder}/src/logger.ts",
+            ],
+            "runtimeArgs": [
+                "--nolazy",
+                "-r",
+                "ts-node/register"
+            ],
+            "request": "launch",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "outFiles": [
+                "${workspaceFolder}/js/**/*.js"
+            ],
+            "sourceMaps": true
         }
     ]
 }
